@@ -1,4 +1,6 @@
 #![no_std]
+#![no_main]
+
 fn main() { }
 
 use core::panic::PanicInfo;

@@ -14,14 +14,7 @@ static STRING: &[u8] = b"LIKE A PHOENIX!!";
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-	let vga_buffer = 0xb8000 as *mut u8;
-
-	for (i, &byte) in STRING.iter().enumerate() {
-		unsafe {
-			*vga_buffer.offset(i as isize * 2) = byte;
-			*vga_buffer.offset(i as isize * 2 + 1) = 0x4f;
-		}
-	}
+	vga_buffer::print_something();
 
 	loop { }
 }

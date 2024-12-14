@@ -134,3 +134,11 @@ pub fn print_something(){
     writer.write_string("ello ");
     write!(writer, "Lyrics is {}", 58).unwrap();
 }
+
+pub static WRITER: Writer = Writer{
+    column_position: 0,
+    color_code: ColorCode::new(Color::Yellow, Color::Black),
+    buffer: unsafe {
+        &mut *(0xb8000 as *mut Buffer)
+    },
+};

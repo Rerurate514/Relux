@@ -2,6 +2,7 @@
 #![no_main]
 #![feature(custom_test_frameworks)]
 #![test_runner(crate::test_runner)]
+#![reexport_test_harness_main = "test_main"]
 
 use core::panic::PanicInfo;
 
@@ -26,6 +27,9 @@ static STRING: &[u8] = b"LIKE A PHOENIX!!";
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
 	println!("HELLO WORLD{}", "!");
+
+	#[cfg(test)]
+	test_main();
 
 	loop { }
 }

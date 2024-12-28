@@ -16,6 +16,13 @@ pub fn test_runner(tests: &[&dyn Fn()]) {
     }
 }
 
+#[test_case]
+fn trivial_assertion(){
+	print!("trivial assertion... ");
+	assert_eq!(1, 2);
+	println!("[ok]");
+}
+
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
 	println!("{}", info);

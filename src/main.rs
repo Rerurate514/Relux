@@ -9,6 +9,7 @@ use core::panic::PanicInfo;
 use x86_64::instructions::port;
 
 mod vga_buffer;
+mod serial;
 
 #[cfg(test)]
 pub fn test_runner(tests: &[&dyn Fn()]) {
